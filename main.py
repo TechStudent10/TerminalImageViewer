@@ -3,6 +3,8 @@ from sty import Style, RgbFg, fg
 
 import webcolors
 import sys
+import string
+import random
 
 image = None
 args = sys.argv
@@ -51,7 +53,7 @@ for h in range(height):
 
         if not log:
             print(
-                fg(pix[0], pix[1], pix[2]) + "." + fg.rs,
+                fg(pix[0], pix[1], pix[2]) + random.choice(string.ascii_letters + string.digits) + fg.rs,
                 end=""
             )
         
@@ -59,4 +61,9 @@ for h in range(height):
 
     print("\n", end="")
 
-print(pixels[100,100])
+try:
+    input("")
+except KeyboardInterrupt:
+    pass
+
+sys.exit()

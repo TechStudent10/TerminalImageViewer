@@ -1,3 +1,5 @@
 *.png
 pixels.txt
 venv/
+*.webp
+*.jpg
