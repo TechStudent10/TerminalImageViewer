@@ -5,6 +5,7 @@ import webcolors
 import sys
 import string
 import random
+import time
 
 image = None
 args = sys.argv
@@ -43,6 +44,8 @@ width = size[0]
 height = size[1]
 im = im.resize((width//5, height//5), Image.LANCZOS)
 
+start = time.time()
+
 for h in range(height):
     for w in range(width):
         pix = pixels[w, h]
@@ -52,6 +55,7 @@ for h in range(height):
             continue
 
         if not log:
+            # print(pix)
             print(
                 fg(pix[0], pix[1], pix[2]) + random.choice(string.ascii_letters + string.digits) + fg.rs,
                 end=""
@@ -59,7 +63,11 @@ for h in range(height):
         
         if log: print(f"Pixel at ({w}, {h}):", pix)
 
-    print("\n", end="")
+    print("")
+
+print("")
+print("Time Elapsed: {} seconds".format(time.time() - start))
+print("Press enter to exit...")
 
 try:
     input("")
