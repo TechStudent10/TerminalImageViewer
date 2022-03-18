@@ -1,5 +1,5 @@
 from PIL import Image
-from sty import Style, RgbFg, fg
+from sty import fg, bg
 
 import webcolors
 import sys
@@ -57,7 +57,7 @@ for h in range(height):
         if not log:
             # print(pix)
             print(
-                fg(pix[0], pix[1], pix[2]) + random.choice(string.ascii_letters + string.digits) + fg.rs,
+                bg(pix[0], pix[1], pix[2]) + fg(pix[0], pix[1], pix[2]) + random.choice(string.ascii_letters + string.digits + "!@#$%^&*()|_-=+[]{}\|;:\"'<>/,.?") + fg.rs + bg.rs,
                 end=""
             )
         
